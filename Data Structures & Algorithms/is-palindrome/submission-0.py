@@ -1,10 +1,6 @@
 class Solution:
     def isPalindrome(self, s: str) -> bool:
-        s_alnum, s_reverse = "", ""
-        for char in s:
-            char = char.upper()
-            if char.isalnum():
-                s_alnum += char
-                s_reverse = char + s_reverse
-        
-        return s_alnum == s_reverse
+        s = "".join([i.lower() for i in s if i.isalnum()])
+        # print("Foward = ", s)
+        # print("Backward = ", s[-1:(-1*len(s))-1:-1])
+        return s == s[-1:-1*len(s)-1:-1]
